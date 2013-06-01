@@ -29,9 +29,14 @@ end
 cat = Cat.find(1)
 p cat
 p cat.human
+p 'Stage 1'
 
 human = Human.find(1)
 p human.cats
+p 'Stage 2'
 p human.house
+p 'Stage 3'
+
 
 p cat.house
+p 'Stage 4'
