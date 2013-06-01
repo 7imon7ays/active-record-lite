@@ -11,9 +11,11 @@ class MassObject
   end
 
   def self.parse_all(results)
+    found_objects = []
     results.each do |result_hash|
-      new(result_hash)
+      found_objects << new(result_hash)
     end
+    found_objects
   end
 
   def initialize(params = {})

@@ -24,6 +24,10 @@ end
 class House < SQLObject
   set_table_name("houses")
   set_attrs(:id, :address, :house_id)
+  
+  has_many :humans #, :foreign_key => :house_id, :class_name => 'Human', :primary_key => :id, :foreign_key => :house_id
+  
+  has_many_through :cats, :humans, :cats
 end
 
 cat = Cat.find(1)
@@ -31,12 +35,27 @@ p cat
 p cat.human
 p 'Stage 1'
 
-human = Human.find(1)
-p human.cats
+devon = Human.find(1)
+matt = Human.find(2)
+
+p devon
+p matt
+p matt.cats
+
+
 p 'Stage 2'
-p human.house
+p matt.house
 p 'Stage 3'
 
 
 p cat.house
 p 'Stage 4'
+
+house = House.find(1)
+
+p house
+p house.humans
+p 'Stage 5'
+
+p house.cats
+p 'Stage 6'
